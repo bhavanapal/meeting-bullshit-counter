@@ -1,6 +1,6 @@
 import { errorHandler, notFound } from '../api/v1/middlewares/error-middleware.js';
 import createApp from '../app.js';
-import  logger  from '../utils/logger/color-logger.js';
+import logger from '../utils/logger/color-logger.js';
 // import v1Routes from '../api/v1/index.js';
 
 /**
