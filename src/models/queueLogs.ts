@@ -2,6 +2,11 @@ import { model, Schema, type InferSchemaType } from 'mongoose';
 
 const queuelogSchema = new Schema(
   {
+    meetingId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Meeting',
+      index: true,
+    },
     logId: {
       type: String,
       required: true,
@@ -11,13 +16,15 @@ const queuelogSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ['pending', 'processing', 'completed', 'failed'],
+      enum: ['queued', 'pending', 'processing', 'completed', 'failed'],
+      default: 'queued',
       required: true,
       index: true,
     },
     error: {
       type: String,
-      default: null,
+      required: false,
+      default: undefined,
       trim: true,
     },
   },

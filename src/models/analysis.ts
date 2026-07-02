@@ -6,22 +6,37 @@ const analysisSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Meeting',
       required: true,
+      unique: true,
+      index: true,
     },
     repetition_score: {
       type: Number,
       required: true,
+      min: 0,
+      max: 100,
     },
     filler_percentage: {
       type: Number,
       required: true,
+      min: 0,
+      max: 100,
     },
-    action_items: {
+    clarity_score: {
       type: Number,
       required: true,
+      min: 0,
+      max: 100,
+    },
+    action_items: {
+      type: [String],
+      required: true,
+      default: [],
     },
     efficiency_score: {
       type: Number,
       required: true,
+      min: 0,
+      max: 100,
     },
     verdict: {
       type: String,

@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
+import { requestIdMiddleware } from './api/v1/middlewares/requestId-middleware.js';
 
 /**
  * create and configuration the express application
@@ -13,6 +14,9 @@ const createApp = () => {
   // create express application
 
   const app = express();
+
+  // custom middleware
+  app.use(requestIdMiddleware);
 
   //built-in middleware
 
