@@ -1,5 +1,13 @@
 import { model, Schema, type InferSchemaType } from 'mongoose';
 
+export const MEETING_STATUS = {
+  QUEUED: 'queued',
+  PENDING: 'pending',
+  PROCESSING: 'processing',
+  COMPLETE: 'completed',
+  FAILED: 'failed',
+} as const;
+
 const meetingSchema = new Schema(
   {
     text: {
@@ -9,8 +17,9 @@ const meetingSchema = new Schema(
     },
     status: {
       type: String,
-      default: 'Processing',
-      enum: ['Processing', 'Complete', 'Failed'],
+      enum: Object.values(MEETING_STATUS),
+      default: MEETING_STATUS.QUEUED,
+      index: true,
     },
   },
   {
