@@ -2,6 +2,8 @@ import { errorHandler, notFound } from '../api/v1/middlewares/error-middleware.j
 import createApp from '../app.js';
 import logger from '../utils/logger/color-logger.js';
 import v1Routes from '../api/v1/index.js';
+import { generateOpenAPIDocument } from '../docs/generateOpenApi.js';
+import swaggerUi from 'swagger-ui-express';
 
 /**
  * Initializes the express application with middleware & routes
@@ -39,7 +41,13 @@ export const initializeExpress = () => {
       });
     });
 
-    app.use('/api/vi', v1Routes);
+    // swagger
+    const openApiDoc = generateOpenAPIDocument();
+    if (process.env.ENABLE_SWAGGER === 'true') {
+      app.use('/docs', swaggerUi.serve, swaggerUi.setup(openApiDoc));
+    }
+
+    app.use('/api/v1', v1Routes);
     app.use(notFound);
     app.use(errorHandler);
 
