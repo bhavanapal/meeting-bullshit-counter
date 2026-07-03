@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import { initializeApp, shutdownApp } from './src/loaders/index-loader.js';
 import { logger } from './src/utils/logger/app-logger.js';
-// import type { NodeJS } from 'node:process';
 
 // Load environment variables
 dotenv.config();
