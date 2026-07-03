@@ -24,7 +24,7 @@ const createApp = () => {
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
   //third-party middleware
-  const allowedOrigins = ['http://localhost:5173'];
+  const allowedOrigins = ['http://localhost:8000', process.env.FRONTEND_URL, process.env.API_URL];
 
   app.use(
     cors({
