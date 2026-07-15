@@ -12,8 +12,11 @@ Meetings consume valuable time, but it is often difficult to measure whether the
 The service provides measurable feedback that helps teams understand and improve their meeting efficiency.
 
 ---
-- 🌐 **Application:** https://meeting-bullshit-counter-production.onrender.com
-- 📖 **Swagger API Docs:** https://meeting-bullshit-counter-production.onrender.com/docs/
+
+## 🌐 Live Demo
+
+- **Application:** https://meeting-bullshit-counter-production.onrender.com
+- **Swagger API Docs:** https://meeting-bullshit-counter-production.onrender.com/docs/
 
 ---
 
@@ -30,11 +33,13 @@ The service provides measurable feedback that helps teams understand and improve
 ## 🛠️ Tech Stack
 
 ### Backend
+
 - Node.js
 - Express.js
 - TypeScript
 
 ### DevOps
+
 - Docker
 - Docker Compose
 - GitHub Actions (CI/CD)
@@ -43,13 +48,27 @@ The service provides measurable feedback that helps teams understand and improve
 
 ## 📦 Installation
 
+Clone the repository:
+
 ```bash
 git clone https://github.com/bhavanapal/meeting-bullshit-counter.git
+```
 
-cd Meeting Bullshit Counter\server
+Navigate to the server directory:
 
+```bash
+cd meeting-bullshit-counter/server
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
 
+Run the development server:
+
+```bash
 npm run dev
 ```
 
@@ -59,9 +78,27 @@ npm run dev
 
 Once the application is running, visit:
 
-```
+### Local
+
+```text
 http://localhost:8000/docs/
+```
+
+### Production
+
+```text
+https://meeting-bullshit-counter-production.onrender.com/docs/
 ```
 
 ---
 
+## 🚀 CI/CD Pipeline
+
+This project uses GitHub Actions for:
+
+- ✅ Code quality checks
+- ✅ Formatting validation
+- ✅ Lint checks
+- ✅ Automated deployment workflow
+
+---
